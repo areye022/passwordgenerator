@@ -3,12 +3,12 @@ var generateBtn = document.querySelector("#generate");
 
 // variables needed for password generator
 
-var askGenerate= confirm('Would you like to generate a random password?');
-var pwLength= prompt('Type a number between 8 and 128 to choose the length of your password. Example:15');
+// var askGenerate= confirm('Would you like to generate a random password?');
+// var pwLength= prompt('Type a number between 8 and 128 to choose the length of your password. Example:15');
 var lowerCase= confirm('Would you like lowecase characters?');
-var upperCase= confirm('Would you like uppercase characters?');
-var numChar= confirm('Would you like numerical characters?')
-var specialChar= confirm('Would you like special characters?')
+// var upperCase= confirm('Would you like uppercase characters?');
+// var numChar= confirm('Would you like numerical characters?')
+// var specialChar= confirm('Would you like special characters?')
 
 // arrays for all character sets
 var lCaseLetters=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -22,12 +22,17 @@ let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
 let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
 let specialRandom = special[Math.floor(Math.random() * special.length)];
 
+  if(lowerCase==='true') {
+    console.log(lCaseRandom);
+  }
 
 // testing random generators
-console.log(lCaseRandom);
-console.log(uCaseRandom);
-console.log(numRandom);
-console.log(specialRandom);
+// console.log(lCaseRandom);
+// console.log(uCaseRandom);
+// console.log(numRandom);
+// console.log(specialRandom);
+
+// creating function generatePassword();
 
 // Write password to the #password input
 function writePassword() {

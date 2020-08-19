@@ -16,6 +16,19 @@ var uCaseLetters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 var numerical=['0','1','2','3','4','5','6','7','8','9']
 var special=['!','@','#','$','%','^','&','*','(',')','/','>','<']
 
+// generating random values for each array character set
+let lCaseRandom = lCaseLetters[Math.floor(Math.random() * lCaseLetters.length)];
+let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
+let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
+let specialRandom = special[Math.floor(Math.random() * special.length)];
+
+
+// testing random generators
+console.log(lCaseRandom);
+console.log(uCaseRandom);
+console.log(numRandom);
+console.log(specialRandom);
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();

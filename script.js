@@ -16,38 +16,59 @@ var uCaseLetters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 var numerical=['0','1','2','3','4','5','6','7','8','9']
 var special=['!','@','#','$','%','^','&','*','(',')','/','>','<']
 
-// generating random values for each array character set
+// // generating random values for each array character set to be inserted into function
+// let lCaseRandom = lCaseLetters[Math.floor(Math.random() * lCaseLetters.length)];
+// let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
+// let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
+// let specialRandom = special[Math.floor(Math.random() * special.length)];
+
+var pw= ''
+
+// creating function generatePassword();
+for (var i=0; i<= pwLength; i++) {
 let lCaseRandom = lCaseLetters[Math.floor(Math.random() * lCaseLetters.length)];
 let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
 let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
 let specialRandom = special[Math.floor(Math.random() * special.length)];
 
-// creating function generatePassword();
-
-  if(lowerCase===true) {
+if(lowerCase===true) {
+  pw+=lCaseRandom;
     console.log(lCaseRandom);
   }
 
   if(upperCase===true) {
+    pw+=uCaseRandom;
     console.log(uCaseRandom);
   }
 
   if(numChar===true) {
+    pw+=numRandom;
     console.log(numRandom);
   }
 
   if(specialChar===true) {
+    pw+=specialRandom;
     console.log(specialRandom);
   }
-
-  
-// testing random generators
-// console.log(lCaseRandom);
-// console.log(uCaseRandom);
-// console.log(numRandom);
-// console.log(specialRandom);
+  console.log(pw);
+}
 
 
+// if(lowerCase===true) {
+//     console.log(lCaseRandom);
+//   }
+
+//   if(upperCase===true) {
+//     console.log(uCaseRandom);
+//   }
+
+//   if(numChar===true) {
+//     console.log(numRandom);
+//   }
+
+//   if(specialChar===true) {
+//     console.log(specialRandom);
+//   }
 
 // Write password to the #password input
 function writePassword() {

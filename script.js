@@ -16,59 +16,53 @@ var uCaseLetters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 var numerical=['0','1','2','3','4','5','6','7','8','9']
 var special=['!','@','#','$','%','^','&','*','(',')','/','>','<']
 
-// // generating random values for each array character set to be inserted into function
-// let lCaseRandom = lCaseLetters[Math.floor(Math.random() * lCaseLetters.length)];
-// let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
-// let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
-// let specialRandom = special[Math.floor(Math.random() * special.length)];
-
 var pw= ''
 
 // creating function generatePassword();
 for (var i=0; i<= pwLength; i++) {
+  // randomly generated values per array
 let lCaseRandom = lCaseLetters[Math.floor(Math.random() * lCaseLetters.length)];
 let uCaseRandom = uCaseLetters[Math.floor(Math.random() * uCaseLetters.length)];
 let numRandom = numerical[Math.floor(Math.random() * numerical.length)];
 let specialRandom = special[Math.floor(Math.random() * special.length)];
 
-if(lowerCase===true) {
-  pw+=lCaseRandom;
-    console.log(lCaseRandom);
+// starting point 
+var ranNumber= 0  
+
+if (lowerCase===true) {ranNumber++}
+if (upperCase===true) {ranNumber++}
+if (numChar===true) {ranNumber++}
+if (specialChar===true) {ranNumber++}
+
+// 4 bc choosing between 4 variables
+var ranIndex= Math.floor(Math.random() * ranNumber)
+var ranArray=[]
+
+  if(lowerCase===true) {
+    ranArray.push(lCaseRandom)
+    console.log(lCaseRandom)
+
   }
 
   if(upperCase===true) {
-    pw+=uCaseRandom;
+    ranArray.push(uCaseRandom)
     console.log(uCaseRandom);
   }
 
   if(numChar===true) {
-    pw+=numRandom;
+    ranArray.push(numRandom)
     console.log(numRandom);
   }
 
   if(specialChar===true) {
-    pw+=specialRandom;
+    ranArray.push(specialRandom)
     console.log(specialRandom);
   }
+  pw+=ranArray[ranIndex]
+  ranArray=[]
   console.log(pw);
 }
 
-
-// if(lowerCase===true) {
-//     console.log(lCaseRandom);
-//   }
-
-//   if(upperCase===true) {
-//     console.log(uCaseRandom);
-//   }
-
-//   if(numChar===true) {
-//     console.log(numRandom);
-//   }
-
-//   if(specialChar===true) {
-//     console.log(specialRandom);
-//   }
 
 // Write password to the #password input
 function writePassword() {
@@ -81,3 +75,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+

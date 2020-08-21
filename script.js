@@ -16,7 +16,8 @@ var uCaseLetters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 var numerical=['0','1','2','3','4','5','6','7','8','9']
 var special=['!','@','#','$','%','^','&','*','(',')','/','>','<']
 
-var pw= ''
+var password=[];
+var pw= [];
 
 // creating function generatePassword();
 for (var i=0; i<= pwLength; i++) {
@@ -34,39 +35,33 @@ if (upperCase===true) {ranNumber++}
 if (numChar===true) {ranNumber++}
 if (specialChar===true) {ranNumber++}
 
-// 4 bc choosing between 4 variables
+// index to move through the variables randomly 
 var ranIndex= Math.floor(Math.random() * ranNumber)
 var ranArray=[]
 
   if(lowerCase===true) {
     ranArray.push(lCaseRandom)
-    console.log(lCaseRandom)
-
   }
 
   if(upperCase===true) {
     ranArray.push(uCaseRandom)
-    console.log(uCaseRandom);
   }
 
   if(numChar===true) {
     ranArray.push(numRandom)
-    console.log(numRandom);
   }
 
   if(specialChar===true) {
     ranArray.push(specialRandom)
-    console.log(specialRandom);
   }
   pw+=ranArray[ranIndex]
   ranArray=[]
-  console.log(pw);
+  console.log(pw)
 }
 
 
-// Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = pw[pw.length-1];
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -76,3 +71,10 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// testing which part of pw is generated in pw generator 
+var password = pw[pw.length-3];
+console.log(password)
+
+
+var password = pw[pw.length-4];
+console.log(password)

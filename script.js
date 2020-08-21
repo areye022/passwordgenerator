@@ -4,11 +4,19 @@ var generateBtn = document.querySelector("#generate");
 // variables needed for password generator
 
 var askGenerate= confirm('Would you like to generate a random password?');
-var pwLength= prompt('Type a number between 8 and 128 to choose the length of your password. Example:15');
 var lowerCase= confirm('Would you like lowercase characters?');
 var upperCase= confirm('Would you like uppercase characters?');
-var numChar= confirm('Would you like numerical characters?')
-var specialChar= confirm('Would you like special characters?')
+var numChar= confirm('Would you like numerical characters?');
+var specialChar= confirm('Would you like special characters?');
+var pwLength= prompt('Type a number between 8 and 128 to choose the length of your password. Example:15');
+
+// creating a criteria for pw length
+if (pwLength<8 || pwLength >128) {
+  alert('Please input a valid password length');
+  // creating new var to prompt length again; however not sure how to get this to loop
+  // originally put var pwLength instead to have it reprompted but did not work properly
+  invalidLength=prompt('Type a number between 8 and 128 to choose the length of your password. Example:15')
+}
 
 // arrays for all character sets
 var lCaseLetters=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -16,8 +24,7 @@ var uCaseLetters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 var numerical=['0','1','2','3','4','5','6','7','8','9']
 var special=['!','@','#','$','%','^','&','*','(',')','/','>','<']
 
-var password=[];
-var pw= [];
+var pw= "";
 
 // creating function generatePassword();
 for (var i=0; i<= pwLength; i++) {
@@ -37,7 +44,7 @@ if (specialChar===true) {ranNumber++}
 
 // index to move through the variables randomly 
 var ranIndex= Math.floor(Math.random() * ranNumber)
-var ranArray=[]
+var ranArray=[];
 
   if(lowerCase===true) {
     ranArray.push(lCaseRandom)
@@ -54,27 +61,23 @@ var ranArray=[]
   if(specialChar===true) {
     ranArray.push(specialRandom)
   }
-  pw+=ranArray[ranIndex]
+  pw+=ranArray[ranIndex];
   ranArray=[]
   console.log(pw)
 }
 
 
 function writePassword() {
-  var password = pw[pw.length-1];
+  // used substring because previously it only picked one index instead of the entire password
+  var password = pw.substring(0,pw.length-1);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// testing which part of pw is generated in pw generator 
-var password = pw[pw.length-3];
-console.log(password)
 
-
-var password = pw[pw.length-4];
-console.log(password)

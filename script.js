@@ -13,9 +13,16 @@ var pwLength= prompt('Type a number between 8 and 128 to choose the length of yo
 // creating a criteria for pw length
 if (pwLength<8 || pwLength >128) {
   alert('Please input a valid password length');
-  // creating new var to prompt length again; however not sure how to get this to loop
-  // originally put var pwLength instead to have it reprompted but did not work properly
-  invalidLength=prompt('Type a number between 8 and 128 to choose the length of your password. Example:15')
+  var pwLength= prompt('Type a number between 8 and 128 to choose the length of your password. Example:15');
+}
+
+//creating an alert to choose at least one character set 
+if (lowerCase === false  && upperCase === false && numChar === false && specialChar=== false) {
+  alert('Please pick at least one character set');
+  var lowerCase= confirm('Would you like lowercase characters?');
+var upperCase= confirm('Would you like uppercase characters?');
+var numChar= confirm('Would you like numerical characters?');
+var specialChar= confirm('Would you like special characters?');
 }
 
 // arrays for all character sets
